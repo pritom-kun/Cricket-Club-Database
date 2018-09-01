@@ -171,12 +171,12 @@ if (isset($_POST['submit']))
 </div>
 
 <ul>
-    <li><a href="http://localhost//CricketClubDatabase/home.php">Home</a></li>
-    <li><a href="http://localhost//CricketClubDatabase/playerRegistration.php">Player Registration</a></li>
-    <li><a href="http://localhost//CricketClubDatabase/clubRegistration.php">Club Registration</a></li>
-    <li><a href="http://localhost//CricketClubDatabase/contractForm.php">Contract Form</a></li>
-    <li><a href="http://localhost//CricketClubDatabase/teamInfoForm.php">Team Information Form</a></li>
-    <li><a class="active" href="http://localhost//CricketClubDatabase/matchInfoForm.php">Match Information Form</a></li>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="playerRegistration.php">Player Registration</a></li>
+    <li><a href="clubRegistration.php">Club Registration</a></li>
+    <li><a href="contractForm.php">Contract Form</a></li>
+    <li><a href="teamInfoForm.php">Team Information Form</a></li>
+    <li><a class="active" href="matchInfoForm.php">Match Information Form</a></li>
 </ul>
 
 <body>
