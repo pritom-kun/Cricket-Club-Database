@@ -1,0 +1,297 @@
+/*
+FONT
+*/
+
+@font-face
+{
+    font-family: "kite one";
+    font-style: normal;
+    font-weight: 400;
+    src: local("kite one"), url("fonts/KiteOne.woff") format("woff");
+}
+
+@font-face
+{
+    font-family: "SAO";
+    font-style: normal;
+    font-weight: 400;
+    src: local("SAO"), url("fonts/SAO.woff") format("woff");
+}
+
+/* Top Banner */
+
+.homePage
+{
+    background: url("images/home.png") no-repeat center top;
+    padding: auto;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.playerPage
+{
+    background: url("images/players.png") no-repeat center top;
+    padding: 0 0 500px;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.clubPage
+{
+    background: url("images/clubs.jpg") no-repeat center top;
+    padding: 0 0 500px;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.contractPage
+{
+    background: url("images/contracts.jpg") no-repeat center bottom;
+    padding: 0 0 500px;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.teamPage
+{
+    background: url("images/teams.png") no-repeat center;
+    padding: 0 0 500px;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.matchPage
+{
+    background: url("images/matches.jpg") no-repeat center top 50%;
+    padding: 0 0 500px;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.pageName
+{
+    top: 20%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    letter-spacing: 3px;
+    color: white;
+    font-size: 50px;
+    font-family: SAO;
+}
+
+/* Navigation Bar */
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1a2733;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+li
+{
+    float: left;
+}
+
+li a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover
+{
+    background-color: #e8174b;
+}
+
+.active
+{
+    background-color: #e8174b;
+}
+
+/* Body */
+
+body
+{
+    background-color: #111a22;
+    font-family: kite one;
+    color: #8b9ba7;
+    font-size: 15px;
+}
+
+.headers
+{
+    color: #e8174b;
+}
+
+.forms
+{
+    margin: 150px;
+    padding: 2px;
+    background-color: #1a2733;
+}
+
+table
+{
+    border: 0;
+    width: 100%;
+}
+
+th, td
+{
+    border: 0;
+}
+
+input[type=text], select, input[type=date], input[type=number]
+{
+    color: white;
+    background-color: #0d0d0d;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid #666666;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus, select:focus, input[type=date]:focus, input[type=number]:focus
+{
+    color: white;
+    background-color: #0d0d0d;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid #ed456f;
+    box-sizing: border-box;
+    user-focus-pointer: none;
+    outline: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+
+}
+
+input[type=submit]
+{
+    width: 100%;
+    background-color: #e8174b;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=checkbox], input[type=radio]
+{
+    margin: 8px 8px;
+    cursor: pointer;
+}
+
+/* Buttons */
+
+.button
+{
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #1a2733;
+    color: #8b9ba7;
+    border: 3px solid #e8174b;
+
+    position: fixed;
+    bottom: 5%;
+    right: 1%;
+}
+
+.button:hover
+{
+    background-color: #e8174b;
+    color: white;
+}
+
+.button2
+{
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #1a2733;
+    color: #8b9ba7;
+    border: 3px solid #e8174b;
+
+    position: fixed;
+    bottom: 15%;
+    right: 1%;
+}
+
+.button2:hover
+{
+    background-color: #e8174b;
+    color: white;
+}
+
+.button3
+{
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #1a2733;
+    color: #8b9ba7;
+    border: 3px solid #e8174b;
+
+    position: fixed;
+    bottom: 25%;
+    right: 1%;
+}
+
+.button3:hover
+{
+    background-color: #e8174b;
+    color: white;
+}
+
+.button4
+{
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #1a2733;
+    color: #8b9ba7;
+    border: 3px solid #e8174b;
+
+    position: fixed;
+    bottom: 35%;
+    right: 1%;
+}
+
+.button4:hover
+{
+    background-color: #e8174b;
+    color: white;
+}
+
