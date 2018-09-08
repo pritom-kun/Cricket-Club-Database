@@ -99,12 +99,17 @@
     <title>Team Information Form</title>
 </head>
 
+<ul>
+    <li><a href="home.php">Home</a></li>
+    <li><a class="active" href="playerRegistration.php">Registration</a></li>
+    <li><a href="playerSearch.php">Information</a></li>
+</ul>
+
 <div class="teamPage">
     <h1 class="pageName">Team Information Form</h1>
 </div>
 
-<ul>
-    <li><a href="home.html">Home</a></li>
+<ul class="subMenu">
     <li><a href="playerRegistration.php">Player Registration</a></li>
     <li><a href="clubRegistration.php">Club Registration</a></li>
     <li><a href="contractForm.php">Contract Form</a></li>

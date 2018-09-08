@@ -31,7 +31,7 @@ FONT
     height: 100%;
 }
 
-.playerPage
+.playerPage, .playerProfile
 {
     background: url("images/players.png") no-repeat center top;
     padding: 0 0 500px;
@@ -110,6 +110,20 @@ ul
     left: 0;
 }
 
+.subMenu
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1a2733;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 50px;
+    width: 100%;
+    left: 0;
+}
+
 li
 {
     float: left;
@@ -167,7 +181,7 @@ th, td
     border: 0;
 }
 
-input[type=text], select, input[type=date], input[type=number]
+input[type=text], select, input[type=date], input[type=number], input[type=search]
 {
     color: white;
     background-color: #0d0d0d;
@@ -179,7 +193,7 @@ input[type=text], select, input[type=date], input[type=number]
     box-sizing: border-box;
 }
 
-input[type=text]:focus, select:focus, input[type=date]:focus, input[type=number]:focus
+input[type=text]:focus, select:focus, input[type=date]:focus, input[type=number]:focus, input[type=search]:focus
 {
     color: white;
     background-color: #0d0d0d;
