@@ -1,0 +1,298 @@
+CREATE TABLE players
+(
+    playerID int(10),
+    first_name varchar(20) NOT NULL,
+    middle_name varchar(20),
+    last_name varchar(20),
+    father_name varchar(20),
+    mother_name varchar(20),
+    present_locationID int(10) NOT NULL,
+    permanent_locationID int(10) NOT NULL,
+    clubID int(10) NOT NULL,
+    PRIMARY KEY (playerID)
+);
+
+
+ALTER TABLE players
+ADD membership varchar(20);
+
+ALTER TABLE players
+ADD date_of_birth date;
+
+ALTER TABLE players
+MODIFY COLUMN playerID int(10) UNSIGNED AUTO_INCREMENT;
+
+
+CREATE TABLE clubs
+(
+    clubID int(10),
+    club_name varchar(30) NOT NULL,
+    president varchar(30),
+    date_established date,
+    PRIMARY KEY (clubID)
+);
+
+ALTER TABLE clubs
+ADD COLUMN club_locationID int(10) NOT NULL;
+
+ALTER TABLE clubs
+MODIFY COLUMN clubID int(10) UNSIGNED AUTO_INCREMENT;
+
+CREATE TABLE player_history
+(
+    playerID int(10),
+    club_name varchar(30) NOT NULL,
+    transferred_to varchar(30),
+    transferred_from varchar(30),
+    total_runs int(7) NOT NULL,
+    total_wickets int(5) NOT NULL,
+    team_leader boolean,
+    PRIMARY KEY (playerID)
+);
+
+ALTER TABLE player_history
+MODIFY COLUMN team_leader char;
+
+ALTER TABLE player_history 
+ADD INDEX(playerID);
+
+CREATE TABLE education
+(
+    playerID int(10) NOT NULL,
+    degree varchar(20) NOT NULL,
+    institution varchar(30) NOT NULL,
+    department varchar(30) NOT NULL,
+    result varchar (10),
+    year int(4),
+    PRIMARY KEY (playerID)
+);
+
+ALTER TABLE education
+DROP PRIMARY KEY;
+
+ALTER TABLE education 
+ADD INDEX(playerID);
+
+CREATE TABLE locations
+(
+    locationID int(10),
+    house varchar(5),
+    street varchar(20),
+    postCode varchar(10),
+    thana varchar(20) NOT NULL,
+    district varchar(20) NOT NULL,
+    PRIMARY KEY (locationID)
+);
+
+
+CREATE TABLE matches
+(
+    matchID int(15),
+    date_of_match date,
+    team_batting_first varchar(30),
+    team_bowling_first varchar(30),
+    home_team varchar(30) NOT NULL,
+    away_team varchar(30) NOT NULL,
+    PRIMARY KEY (matchID)
+);
+
+ALTER TABLE matches
+ADD COLUMN man_of_the_match varchar(30),
+ALTER TABLE matches
+ADD COLUMN umpire varchar(30),
+ALTER TABLE matches
+ADD COLUMN venueID int(5);
+
+ALTER TABLE events_organised
+DROP home_team;
+ALTER TABLE events_organised
+DROP away_team;
+
+
+CREATE TABLE venues
+(
+    venueID int(10) NOT NULL,
+    capacity int(7),
+    city varchar(20) NOT NULL,
+    PRIMARY KEY (venueID)
+);
+
+DROP TABLE venues;
+
+CREATE TABLE contracts
+(
+    playerID int(10),
+    clubID int(10),
+    contract_start_date date NOT NULL,
+    contract_end_date date NOT NULL,
+    total_fee float(15) NOT NULL,
+    due_date date NOT NULL,
+    actual_payment_date date NOT NULL,
+    amount_paid date NOT NULL,
+    paymentID int(20),
+    PRIMARY KEY (playerID, clubID, paymentID)
+);
+
+ALTER TABLE contracts
+ADD COLUMN witness1 varchar(50) NOT NULL,
+ADD COLUMN witness2 varchar(50),
+ADD COLUMN designation varchar(30) NOT NULL,
+ADD COLUMN authorized_person varchar(100) NOT NULL,
+ADD COLUMN contract_amount numeric(12, 2) NOT NULL;
+
+ALTER TABLE contracts
+DROP total_fee;
+
+ALTER TABLE contracts
+DROP PRIMARY KEY;
+
+ALTER TABLE contracts
+ADD PRIMARY KEY (paymentID);
+
+ALTER TABLE contracts
+DROP due_date;
+
+ALTER TABLE contracts
+DROP actual_payment_date;
+
+ALTER TABLE contracts
+DROP amount_paid;
+
+ALTER TABLE players
+ADD COLUMN membershipID int(10);
+ALTER TABLE contracts
+MODIFY COLUMN paymentID int(20) UNSIGNED AUTO_INCREMENT;
+
+
+CREATE TABLE payment_scedule
+(
+    paymentID int(20),
+    due_date date NOT NULL, 
+    actual_payment_date date NOT NULL, 
+    amount_paid numeric (12, 2) NOT NULL,
+);
+
+ALTER TABLE payment_scedule
+ADD COLUMN payment_serial int(30);
+
+ALTER TABLE payment_scedule
+RENAME TO payment_schedule;
+
+
+CREATE TABLE best_performers
+(
+    playerID int(10),
+    matchID int(10),
+    team_for varchar(30) NOT NULL,
+    team_against varchar(30) NOT NULL,
+    runs int(7) NOT NULL,
+    wickets int(5) NOT NULL,
+    PRIMARY KEY (playerID, matchID)
+);
+
+ALTER TABLE best_performers
+RENAME TO match_performance;
+
+ALTER TABLE match_performance
+DROP team_for;
+
+ALTER TABLE match_performance
+DROP team_against;
+
+ALTER TABLE match_performance
+CHANGE runs total_runs INT(7) NOT NULL;
+
+ALTER TABLE match_performance
+CHANGE wickets total_wickets INT(7) NOT NULL;
+
+ALTER TABLE match_performance
+ADD COLUMN outstanding_performance varchar(30); 
+
+ALTER TABLE match_performance
+DROP PRIMARY KEY;
+
+
+CREATE TABLE events_organised
+(
+    eventID int(10),
+    clubID int(10),
+    matchID int(10),
+    PRIMARY KEY (eventID, clubID, matchID)
+);
+
+ALTER TABLE events_organised
+DROP matchID;
+
+ALTER TABLE events_organised
+DROP clubID;
+
+ALTER TABLE events_organised
+ADD COLUMN start_date,
+ADD COLUMN end_date,
+ADD COLUMN eventName varchar(40);
+
+CREATE TABLE personal_best
+(
+    playerID int(10),
+    eventID int(10),
+    matchID int(10),
+    club_name varchar(30) NOT NULL,
+    club_against varchar(30) NOT NULL,
+    runs int(7) NOT NULL,
+    wickets int(5) NOT NULL,
+    PRIMARY KEY (playerID, eventID, matchID)
+);   
+
+ALTER TABLE personal_best
+DROP PRIMARY KEY;
+     
+ALTER TABLE personal_best 
+ADD INDEX(playerID);
+
+
+CREATE TABLE teams
+(
+    clubID int(10) NOT NULL,
+    formation_date date,
+    eventID int(10) NOT NULL,
+    team_leaderID int(10) NOT NULL,
+    coachID int(10) NOT NULL,
+    coach_name varchar(50) NOT NULL,
+    teamID int(10),
+    
+    PRIMARY KEY (teamID)
+);
+
+
+CREATE TABLE team_playerlist
+(
+    teamID int(10) NOT NULL,
+    playerID int(10) NOT NULL,
+    player_name varchar(100)
+);
+
+ALTER TABLE team_playerlist 
+ADD INDEX(teamID);
+
+
+
+ALTER TABLE teams
+MODIFY COLUMN teamID int(10) UNSIGNED AUTO_INCREMENT;
+
+
+CREATE TABLE membership_details
+(
+    membershipID int(10) NOT NULL,
+    Membership_name varchar(30) NOT NULL,
+    membership_type varchar(20),
+    Regi_date date,
+    exp_date date,
+    
+    PRIMARY KEY (membershipID)
+);
+
+ALTER TABLE players
+DROP COLUMN membership;
+
+ALTER TABLE membership_details
+ADD COLUMN playerID int(10);
